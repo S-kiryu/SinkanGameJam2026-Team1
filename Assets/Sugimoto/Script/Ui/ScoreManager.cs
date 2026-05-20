@@ -2,14 +2,18 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    private int _score;
-    public int Score => _score;
-    public void AddScore(int score)
+    public static ScoreManager Instance;
+
+    public int Score { get; private set; }
+
+    private void Awake()
     {
-        _score += score;
+        Instance = this;
+        Score = 0;
     }
-    public void ResetScore()
+
+    public void AddScore(int value)
     {
-        _score = 0;
+        Score += value;
     }
 }
