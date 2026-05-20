@@ -8,25 +8,27 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform muzzle;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private CharacterStatus _characterStatus;
+
     void Start()
     {
-        
+        _characterStatus = GetComponent<CharacterStatus>();
     }
-
     // Update is called once per frame
     void Update()
     {
         ShootingTime += Time.deltaTime;
 
-        if(ShootingTime >= ShootingInterval)
+        if (ShootingTime >= ShootingInterval)
         {
-            // 生成位置を取得
-            Vector3 playerPos = transform.position;
-            // 弾を生成
             GameObject bullet = Instantiate(bulletPrefab, muzzle.position, muzzle.rotation);
-            
-            if(bullet.TryGetComponent(out Rigidbody2D rb2D))
+
+            if (bullet.TryGetComponent(out Bullet bulletComponent) && _characterStatus != null)
+            {
+                bulletComponent.SetAttackPower(_characterStatus.Attack);
+            }
+
+            if (bullet.TryGetComponent(out Rigidbody2D rb2D))
             {
                 Vector2 velocity = muzzle.up * BulletSpeed;
                 rb2D.linearVelocity = velocity;
@@ -34,10 +36,6 @@ public class PlayerShooting : MonoBehaviour
 
             ShootingTime = 0f;
         }
-
-
-
-
 
         // テスト用処理
         if (Input.GetKey(KeyCode.D))
