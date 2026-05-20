@@ -20,7 +20,7 @@ public class miniShooting : MonoBehaviour
         if (_bulletPrefab == null || _muzzle == null) return;
         if (lastShootTime >= _shootingInterval)
         {
-            GameObject bullet = Instantiate(_bulletPrefab, _muzzle);
+            GameObject bullet = Instantiate(_bulletPrefab, _muzzle.position, _muzzle.rotation);
 
             if (bullet.TryGetComponent(out Bullet bulletComponent))
             {
