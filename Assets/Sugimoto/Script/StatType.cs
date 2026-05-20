@@ -2,7 +2,7 @@
 public enum StatType
 {
     Attack,
-    Defense,
+    Barret,
     Speed,
     MaxHp
 }

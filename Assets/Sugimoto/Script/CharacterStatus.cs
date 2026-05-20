@@ -5,7 +5,7 @@ public class CharacterStatus : MonoBehaviour
 {
     [Header("Base Status")]
     [SerializeField] private float baseAttack = 1f;
-    [SerializeField] private float baseDefense = 1f;
+    [SerializeField] private float baseBarret = 1f;
     [SerializeField] private float baseSpeed = 1f;
     [SerializeField] private float baseMaxHp = 1f;
 
@@ -13,7 +13,7 @@ public class CharacterStatus : MonoBehaviour
     private readonly Dictionary<StatType, float> buffValues = new();
 
     public float Attack => baseAttack + GetBuffValue(StatType.Attack);
-    public float Defense => baseDefense + GetBuffValue(StatType.Defense);
+    public float Barret => baseBarret + GetBuffValue(StatType.Barret);
     public float Speed => baseSpeed + GetBuffValue(StatType.Speed);
     public float MaxHp => baseMaxHp + GetBuffValue(StatType.MaxHp);
 
