@@ -12,6 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d64a16ebe9fd8846a37c4df74e2a3e0, type: 3}
   m_Name: Buff
   m_EditorClassIdentifier: 
-  modifiers:
-  - StatType: 1
-    Value: 5
+  _modifiers: []
