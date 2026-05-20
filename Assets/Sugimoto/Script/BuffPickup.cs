@@ -15,5 +15,6 @@ public class BuffPickup : MonoBehaviour
         }
 
         buffManager.AddBuff(_buffPrefab);
+        Destroy(gameObject);
     }
 }

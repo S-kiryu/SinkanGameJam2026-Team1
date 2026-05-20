@@ -6,13 +6,13 @@ public class PlayerMovement : MonoBehaviour
 
     public float PlayerMove = 5;
 
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D _rigidbody2D;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (rigidbody2D == null)
+        if (_rigidbody2D == null)
         {
-            rigidbody2D = GetComponent<Rigidbody2D>();
+            _rigidbody2D = GetComponent<Rigidbody2D>();
         }
     }
 
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-        Vector2 moveDirection = new Vector2(moveX, moveY), normaLized;
-        rigidbody2D.linearVelocity = moveDirection * PlayerMove;
+        Vector2 moveDirection = new Vector2(moveX, moveY);
+        _rigidbody2D.linearVelocity = moveDirection * PlayerMove;
     }
 }

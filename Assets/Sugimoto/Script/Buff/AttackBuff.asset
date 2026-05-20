@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d64a16ebe9fd8846a37c4df74e2a3e0, type: 3}
   m_Name: AttackBuff
   m_EditorClassIdentifier: 
-  _modifiers: []
+  _modifiers:
+  - StatType: 0
+    Value: 111
+    ValueIncreasePerSameBuff: 10

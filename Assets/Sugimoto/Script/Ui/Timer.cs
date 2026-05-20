@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Timer: MonoBehaviour
 {
     [SerializeField] private float duration = 60f; // タイマーの制限時間
     [SerializeField] private TMPro.TextMeshProUGUI _timerText; // タイマー表示用のテキスト

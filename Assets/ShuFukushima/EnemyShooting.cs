@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyShooting : MonoBehaviour
 {
     public float ShootingInterval;
-    public float ShootingTime = 0f;
+    public float ShootingTime = 5f;
     public float BulletSpeed;
     public float MissileSpeed;
     [SerializeField] private GameObject bulletPrefab;
