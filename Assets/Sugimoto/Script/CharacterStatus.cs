@@ -8,6 +8,7 @@ public class CharacterStatus : MonoBehaviour
     [SerializeField] private float _baseBarret = 1f;
     [SerializeField] private float _baseSpeed = 1f;
     [SerializeField] private float _baseMaxHp = 1f;
+    [SerializeField] private int _smallcannon = 0;
 
     private float _currentHp;
 
@@ -17,8 +18,9 @@ public class CharacterStatus : MonoBehaviour
     public float Barret => _baseBarret + GetBuffValue(StatType.Barret);
     public float Speed => _baseSpeed + GetBuffValue(StatType.Speed);
     public float MaxHp => _baseMaxHp + GetBuffValue(StatType.MaxHp);
+    public int Smallcannon => _smallcannon + (int)GetBuffValue(StatType.Smallcannon);
     public float CurrentHp => _currentHp;
-
+    
     public System.Action<float, float> OnHpChanged;
 
     private void Awake()
