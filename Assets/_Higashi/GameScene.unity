@@ -245,6 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacks:
   - {fileID: 11400000, guid: 7f64afaae1a741f459852a9e97e7dcd0, type: 2}
+  - {fileID: 11400000, guid: f1222c0988ecbc4458642bd313321972, type: 2}
   muzzle: {fileID: 1423959951}
   playerTransform: {fileID: 1641496573}
 --- !u!50 &461720862
@@ -883,11 +884,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49eefd557baa3b941b7d37eb5ff416af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 7899073847824919205, guid: 7fe09f90fda1581428bc65cfe66b90b8, type: 3}
+  muzzle: {fileID: 2114385427}
+  BulletCount: 1
+  TotalAngle: 60
   ShootingInterval: 0.2
   ShootingTime: 1
   BulletSpeed: 3
-  bulletPrefab: {fileID: 7899073847824919205, guid: 7fe09f90fda1581428bc65cfe66b90b8, type: 3}
-  muzzle: {fileID: 2114385427}
 --- !u!114 &1641496575
 MonoBehaviour:
   m_ObjectHideFlags: 0
