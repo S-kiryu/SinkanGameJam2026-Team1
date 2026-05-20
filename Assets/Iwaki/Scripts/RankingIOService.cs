@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public static class RankingIOService
@@ -53,19 +54,14 @@ public static class RankingIOService
     {
         var data = Load();
 
-        for (int i = 0; i < RankingData.rankCount; i++)
-        {
-            if (data.ranks[i] == null)
-            {
-                data.ranks[i] = item;
-            }
+        data.ranks.Add(item);
 
-            // 入れ替え
-            if (item.score > data.ranks[i].score)
-            {
-                (item, data.ranks[i]) = (data.ranks[i], item);
-            }
+        for (int i = 0; i < data.ranks.Count; i++)
+        {
+            item ??= new RankingItem();
         }
+
+        data.ranks = data.ranks.OrderByDescending(x => x?.score ?? -1).ToList();
 
         Save(data);
     }

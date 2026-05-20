@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class RankingView : MonoBehaviour
 {
@@ -11,9 +12,13 @@ public class RankingView : MonoBehaviour
         _rankingData = RankingIOService.Load();
 
         var items = _rankingBoardRoot.GetComponentsInChildren<RankingItemView>(false);
-        var loop = Mathf.Min(items.Length, RankingData.rankCount);
 
-        for (int i = 0; i < loop; i++)
+        for (int i = 0; i < items.Length; i++)
+        {
+            items[i].SetData(null, i);
+        }
+
+        for (int i = 0; i < _rankingData.ranks.Count; i++)
         {
             items[i].SetData(_rankingData.ranks[i], i);
         }
@@ -35,6 +40,5 @@ public class RankingItem
 [System.Serializable]
 public class RankingData
 {
-    public const int rankCount = 3;
-    public RankingItem[] ranks = new RankingItem[rankCount];
+    public List<RankingItem> ranks = new();
 }
