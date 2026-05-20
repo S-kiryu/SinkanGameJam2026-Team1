@@ -6,7 +6,7 @@ public class Buff : BuffBase
 {
 
     //バフの効果を定義するリスト
-    [SerializeField]private List<StatModifier> modifiers;
+    [SerializeField]private List<StatModifier> _modifiers;
 
     //private void Awake()
     //{
@@ -23,6 +23,6 @@ public class Buff : BuffBase
     //強化するバフのリストを返す
     public override IReadOnlyList<StatModifier> GetModifiers()
     {
-        return modifiers;
+        return _modifiers;
     }
 }
