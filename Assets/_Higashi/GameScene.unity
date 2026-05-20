@@ -243,11 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191c7457cd7ebf34988d9b5c9125d91d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShootingInterval: 0.3
-  ShootingTime: 5
-  BulletSpeed: 5
-  MissileSpeed: 4
-  bulletPrefab: {fileID: 1330743799309520173, guid: e01c0b0c4185a1341a68a9c7d20eb2ba, type: 3}
+  attacks:
+  - {fileID: 11400000, guid: 7f64afaae1a741f459852a9e97e7dcd0, type: 2}
   muzzle: {fileID: 1423959951}
   playerTransform: {fileID: 1641496573}
 --- !u!50 &461720862
@@ -687,6 +684,7 @@ MonoBehaviour:
   debugBuffItems:
   - {fileID: 655524093267819336, guid: de7987f427bcc2943b8a602877e127ca, type: 3}
   bossHP: {fileID: 461720867}
+  dropSettings: []
 --- !u!4 &1326775592
 Transform:
   m_ObjectHideFlags: 0
@@ -1038,6 +1036,7 @@ MonoBehaviour:
   _baseBarret: 1
   _baseSpeed: 1
   _baseMaxHp: 100
+  _smallcannon: 0
 --- !u!114 &1641496580
 MonoBehaviour:
   m_ObjectHideFlags: 0
