@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class BuffManager : MonoBehaviour
 {
-    [SerializeField] private CharacterStatus targetStatus;
+    [SerializeField] private CharacterStatus _targetStatus;
 
     //今効果が適用されているバフのリスト
-    private readonly List<ActiveBuff> activeBuffs = new();
+    private readonly List<ActiveBuff> _activeBuffs = new();
 
     private void Awake()
     {
-        if (targetStatus == null)
-            targetStatus = GetComponent<CharacterStatus>();
+        if (_targetStatus == null)
+            _targetStatus = GetComponent<CharacterStatus>();
 
         RecalculateStatus();
     }
@@ -25,28 +25,28 @@ public class BuffManager : MonoBehaviour
             return;
         }
 
-        activeBuffs.Add(new ActiveBuff(buff));
+        _activeBuffs.Add(new ActiveBuff(buff));
         RecalculateStatus();
     }
 
     //特定のバフを削除するメソッド
     public void RemoveBuff(BuffBase buff)
     {
-        activeBuffs.RemoveAll(x => x.Buff == buff);
+        _activeBuffs.RemoveAll(x => x.Buff == buff);
         RecalculateStatus();
     }
 
     //すべてのバフをクリアするメソッド
     public void ClearBuffs()
     {
-        activeBuffs.Clear();
+        _activeBuffs.Clear();
         RecalculateStatus();
     }
 
     //バフの効果を再計算してステータスに適用するメソッド
     private void RecalculateStatus()
     {
-        if (targetStatus == null)
+        if (_targetStatus == null)
         {
             return;
         }
@@ -55,7 +55,7 @@ public class BuffManager : MonoBehaviour
         Dictionary<BuffBase, int> sameBuffCounts = new();
 
         //同じバフの数をカウント
-        foreach (var activeBuff in activeBuffs)
+        foreach (var activeBuff in _activeBuffs)
         {
             if (activeBuff.Buff == null)
             {
@@ -91,7 +91,7 @@ public class BuffManager : MonoBehaviour
             }
         }
 
-        targetStatus.ApplyBuffValues(totalValues);
+        _targetStatus.ApplyBuffValues(totalValues);
     }
 
     private class ActiveBuff

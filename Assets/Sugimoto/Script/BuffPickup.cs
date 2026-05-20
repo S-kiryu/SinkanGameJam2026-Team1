@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BuffPickup : MonoBehaviour
 {
-    [SerializeField] private BuffBase buffPrefab;
+    [SerializeField] private BuffBase _buffPrefab;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,6 +14,6 @@ public class BuffPickup : MonoBehaviour
             return;
         }
 
-        buffManager.AddBuff(buffPrefab);
+        buffManager.AddBuff(_buffPrefab);
     }
 }
