@@ -25,8 +25,6 @@ public class HPgauge : MonoBehaviour
     public void UpdateGauge(float max, float current)
     {
         //_currentHP = Mathf.Max(current, 0f);
-        _gauge.fillAmount = current / max;
+        _gauge.fillAmount = Mathf.Clamp01(current / max);
     }
-
-
 }
