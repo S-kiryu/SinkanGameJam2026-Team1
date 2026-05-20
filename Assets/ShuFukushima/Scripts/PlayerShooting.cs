@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class PlayerShooting : MonoBehaviour
 {
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform muzzle;
+
+ public int BulletCount = 1;
+    public float TotalAngle = 60;
+
     public float ShootingInterval;
     public float ShootingTime = 0f;
     public float BulletSpeed;
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform muzzle;
 
     private CharacterStatus _characterStatus;
 
@@ -17,24 +21,41 @@ public class PlayerShooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Shoot();
+    }
+
+    void Shoot()
+    {
         ShootingTime += Time.deltaTime;
 
         if (ShootingTime >= ShootingInterval)
         {
-            GameObject bullet = Instantiate(bulletPrefab, muzzle.position, muzzle.rotation);
+            float angleStep = TotalAngle / (BulletCount - 1);
 
-            if (bullet.TryGetComponent(out Bullet bulletComponent) && _characterStatus != null)
-            {
-                bulletComponent.SetAttackPower(_characterStatus.Attack);
-            }
+            float startAngle = -TotalAngle / 2f;
 
-            if (bullet.TryGetComponent(out Rigidbody2D rb2D))
+            for (int i = 0;  i < BulletCount; i++)
             {
-                Vector2 velocity = muzzle.up * BulletSpeed;
-                rb2D.linearVelocity = velocity;
+                float currentAngle = startAngle + angleStep * i;
+
+                Quaternion bulletRotation = muzzle .rotation * Quaternion.Euler(0,0,currentAngle);
+
+                GameObject bullet = Instantiate(bulletPrefab,muzzle.position, bulletRotation);
+
+                if (bullet.TryGetComponent(out Bullet bulletComponent) && _characterStatus != null)
+                {
+                    bulletComponent.SetAttackPower(_characterStatus.Attack);
+                }
+
+                if (bullet.TryGetComponent(out Rigidbody2D rb2D))
+                {
+                    Vector2 velocity = bullet.transform.up * BulletSpeed;
+                    rb2D.linearVelocity = velocity;
+                }
             }
 
             ShootingTime = 0f;
         }
+        
     }
 }
