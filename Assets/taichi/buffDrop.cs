@@ -2,36 +2,39 @@ using UnityEngine;
 
 public class buffDrop : MonoBehaviour
 {
-    [SerializeField] public GameObject debugBuffItem;
-    private HPgauge bossHP;
-    
-    //別のスクリプトからいろんなバフが指定されている変数が入っているリスト取得するためのコード
-    private 
-    void Start()
-    {
-        //アイテムの呼び出し処理
-        GameObject Item = Instantiate(debugBuffItem);
+    [SerializeField] private GameObject[] debugBuffItems;
+    [SerializeField] private BossStatus bossHP;
 
-    }
+    private bool drop80;
+    private bool drop50;
+    private bool drop10;
 
-    // Update is called once per frame
     void Update()
     {
-        if (bossHP._maxHP <= 10)
-        {
-            //アイテムの呼び出し処理
-            GameObject Item = Instantiate(debugBuffItem);
+        float hpRate = bossHP.CurrentHp / bossHP.MaxHp;
 
-        }
-        else if (bossHP._maxHP <= 50)
+        if (!drop80 && hpRate <= 0.8f)
         {
-            //アイテムの呼び出し処理
-            GameObject Item = Instantiate(debugBuffItem);
-        }
-        else if (bossHP._maxHP <= 80)
-        {
-            GameObject Item = Instantiate(debugBuffItem);
+            DropItem();
+            drop80 = true;
         }
 
+        if (!drop50 && hpRate <= 0.5f)
+        {
+            DropItem();
+            drop50 = true;
+        }
+
+        if (!drop10 && hpRate <= 0.1f)
+        {
+            DropItem();
+            drop10 = true;
+        }
+    }
+
+    private void DropItem()
+    {
+        int index = Random.Range(0, debugBuffItems.Length);
+        Instantiate(debugBuffItems[index], transform.position, Quaternion.identity);
     }
 }
