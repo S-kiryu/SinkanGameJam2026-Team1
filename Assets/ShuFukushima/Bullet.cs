@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
 
     private float _attackPower;
 
+
     public void SetAttackPower(float attackPower)
     {
         _attackPower = attackPower;
