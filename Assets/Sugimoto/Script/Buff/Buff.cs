@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AttackBuff", menuName = "Buffs/AttackBuff")]
+[CreateAssetMenu(fileName = "Buff", menuName = "Buffs/Buff")]
 public class Buff : BuffBase
 {
 
