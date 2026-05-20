@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200649cf8a2ffbb47b97418483ba1d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffPrefab: {fileID: 11400000, guid: 732ba10bceda3b3459602e922c457f4b, type: 2}
+  buffPrefab: {fileID: 11400000, guid: a76991f9e760449449637462f157fbbd, type: 2}
 --- !u!212 &1707324279
 SpriteRenderer:
   m_ObjectHideFlags: 0

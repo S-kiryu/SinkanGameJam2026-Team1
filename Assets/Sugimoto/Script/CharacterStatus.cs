@@ -24,7 +24,7 @@ public class CharacterStatus : MonoBehaviour
 
         foreach (var pair in values)
         {
-            Debug.Log(pair.Key + "のバフ値を" + pair.Value + "に設定");
+            //Debug.Log(pair.Key + "のバフ値を" + pair.Value + "に設定");
             buffValues[pair.Key] = pair.Value;
         }
     }

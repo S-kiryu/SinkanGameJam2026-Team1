@@ -52,20 +52,42 @@ public class BuffManager : MonoBehaviour
         }
 
         Dictionary<StatType, float> totalValues = new();
+        Dictionary<BuffBase, int> sameBuffCounts = new();
 
+        //同じバフの数をカウント
         foreach (var activeBuff in activeBuffs)
         {
-            var modifiers = activeBuff.Buff.GetModifiers();
+            if (activeBuff.Buff == null)
+            {
+                continue;
+            }
 
-            //各バフの効果を合計する
+            if (!sameBuffCounts.ContainsKey(activeBuff.Buff))
+            {
+                sameBuffCounts[activeBuff.Buff] = 0;
+            }
+
+            sameBuffCounts[activeBuff.Buff]++;
+        }
+
+        //同じバフの数に基づいて、各バフの効果を合計
+        foreach (var pair in sameBuffCounts)
+        {
+            BuffBase buff = pair.Key;
+            int sameBuffCount = pair.Value;
+            var modifiers = buff.GetModifiers();
+
             foreach (var modifier in modifiers)
             {
                 if (!totalValues.ContainsKey(modifier.StatType))
                 {
                     totalValues[modifier.StatType] = 0f;
                 }
-                Debug.Log(modifier.StatType + "に" + modifier.Value + "のバフ効果を追加");
-                totalValues[modifier.StatType] += modifier.Value;
+
+                float addedValue = modifier.GetTotalValue(sameBuffCount);
+                totalValues[modifier.StatType] += addedValue;
+
+                Debug.Log($"{buff.name} x{sameBuffCount} : {modifier.StatType} に {addedValue} のバフ効果を追加");
             }
         }
 

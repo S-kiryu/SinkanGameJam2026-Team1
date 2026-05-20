@@ -15,6 +15,5 @@ public class BuffPickup : MonoBehaviour
         }
 
         buffManager.AddBuff(buffPrefab);
-
     }
 }
