@@ -13,7 +13,7 @@ public class StraightShotAttack : EnemyAttackBase
         Vector3 dir = (player.position - muzzle.position).normalized;
         GameObject bullet = Instantiate(bulletPrefab, muzzle.position, Quaternion.identity);
 
-        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         if (rb != null)
         {
             rb.linearVelocity = dir * bulletSpeed;

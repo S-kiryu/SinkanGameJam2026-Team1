@@ -5,5 +5,6 @@ public enum StatType
     Barret,
     Smallcannon,
     Speed,
+    ShootingInterval,
     MaxHp
 }

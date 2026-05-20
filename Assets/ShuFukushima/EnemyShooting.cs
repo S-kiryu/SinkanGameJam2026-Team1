@@ -10,19 +10,37 @@ public class EnemyShooting : MonoBehaviour
 
     void Update()
     {
-        if (attacks == null || attacks.Length == 0) return;
-        if (muzzle == null || playerTransform == null) return;
+        if (attacks == null || attacks.Length == 0)
+        {
+            Debug.LogWarning($"{name}: attacks が未設定です");
+            return;
+        }
+
+        if (muzzle == null)
+        {
+            Debug.LogWarning($"{name}: muzzle が未設定です");
+            return;
+        }
+
+        if (playerTransform == null)
+        {
+            Debug.LogWarning($"{name}: playerTransform が未設定です");
+            return;
+        }
 
         cooldownTimer -= Time.deltaTime;
 
         if (cooldownTimer > 0f) return;
 
         EnemyAttackBase attack = GetRandomAttack();
-        if (attack == null) return;
+        if (attack == null)
+        {
+            Debug.LogWarning($"{name}: ランダムで選ばれた attack が null です");
+            return;
+        }
 
         attack.ExecuteAttack(transform, muzzle, playerTransform);
 
-        // 今回使った攻撃のクールタイムを待つ
         cooldownTimer = attack.Interval;
     }
 
