@@ -5,6 +5,6 @@ public class Start : MonoBehaviour
 {
     public void OnStartButton()
     {
-        SceneManager.LoadScene("bosshp"); // "GameScene" の部分はシーンの名前に変更
+        SceneManager.LoadScene("GameScene"); // "GameScene" の部分はシーンの名前に変更
     }
 }

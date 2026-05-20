@@ -4,7 +4,7 @@ public class HPgauge : MonoBehaviour
 {
 
     [SerializeField] Image _gauge;
-    //[SerializeField] float _maxHP = 100f;
+    [SerializeField] public float _maxHP = 100f;
     //[SerializeField] float _currentHP = 100f;//デバッグ用後で消す
     //[SerializeField] float _changeValue = 10f;//デバッグ用後で消す
     // Start is called once before the first execution of Update after the MonoBehaviour is created

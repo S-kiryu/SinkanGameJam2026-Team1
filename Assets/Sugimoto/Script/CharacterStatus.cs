@@ -4,18 +4,18 @@ using UnityEngine;
 public class CharacterStatus : MonoBehaviour
 {
     [Header("Base Status")]
-    [SerializeField] private float baseAttack = 1f;
-    [SerializeField] private float baseBarret = 1f;
-    [SerializeField] private float baseSpeed = 1f;
-    [SerializeField] private float baseMaxHp = 1f;
+    [SerializeField] private float _baseAttack = 1f;
+    [SerializeField] private float _baseBarret = 1f;
+    [SerializeField] private float _baseSpeed = 1f;
+    [SerializeField] private float _baseMaxHp = 1f;
 
     //バフの値を保持する辞書
     private readonly Dictionary<StatType, float> buffValues = new();
 
-    public float Attack => baseAttack + GetBuffValue(StatType.Attack);
-    public float Barret => baseBarret + GetBuffValue(StatType.Barret);
-    public float Speed => baseSpeed + GetBuffValue(StatType.Speed);
-    public float MaxHp => baseMaxHp + GetBuffValue(StatType.MaxHp);
+    public float Attack => _baseAttack + GetBuffValue(StatType.Attack);
+    public float Barret => _baseBarret + GetBuffValue(StatType.Barret);
+    public float Speed => _baseSpeed + GetBuffValue(StatType.Speed);
+    public float MaxHp => _baseMaxHp + GetBuffValue(StatType.MaxHp);
 
     //バフの値を更新するメソッド
     public void ApplyBuffValues(Dictionary<StatType, float> values)
@@ -24,7 +24,7 @@ public class CharacterStatus : MonoBehaviour
 
         foreach (var pair in values)
         {
-            Debug.Log(pair.Key + "のバフ値を" + pair.Value + "に設定");
+            //Debug.Log(pair.Key + "のバフ値を" + pair.Value + "に設定");
             buffValues[pair.Key] = pair.Value;
         }
     }

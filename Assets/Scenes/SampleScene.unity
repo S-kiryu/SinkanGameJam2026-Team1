@@ -371,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200649cf8a2ffbb47b97418483ba1d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffPrefab: {fileID: 11400000, guid: 732ba10bceda3b3459602e922c457f4b, type: 2}
+  _buffPrefab: {fileID: 0}
 --- !u!212 &1707324279
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -605,10 +605,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7ff26e68e088d47876408d45e0a25e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseAttack: 1
-  baseBarret: 1
-  baseSpeed: 1
-  baseMaxHp: 1
+  _baseAttack: 1
+  _baseBarret: 1
+  _baseSpeed: 1
+  _baseMaxHp: 1
 --- !u!114 &1780928366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,7 +621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a635ce2b5d76de148be49c5a0d4585b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetStatus: {fileID: 1780928365}
+  _targetStatus: {fileID: 1780928365}
 --- !u!60 &1780928367
 PolygonCollider2D:
   m_ObjectHideFlags: 0
