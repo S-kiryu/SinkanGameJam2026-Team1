@@ -11,12 +11,12 @@ public class Bullet : MonoBehaviour
         Debug.Log("Bullet‚ª‰½‚©‚É“–‚½‚Á‚½");
         if (collision.CompareTag("Enemy"))
         {
-            //var status = collision.GetComponent<CharacterStatus>();
+            var status = collision.GetComponent<BossStatus>();
 
-            //if (status != null)
-            //{
-            //    status.TakeDamage(damage);
-            //}
+            if (status != null)
+            {
+                status.TakeDamage(damage);
+            }
             Debug.Log("Enemy‚É“–‚½‚Á‚½");
             Destroy(gameObject);
         }
