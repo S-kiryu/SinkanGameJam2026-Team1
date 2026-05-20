@@ -183,11 +183,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49eefd557baa3b941b7d37eb5ff416af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 7899073847824919205, guid: 7fe09f90fda1581428bc65cfe66b90b8, type: 3}
+  muzzle: {fileID: 1125507463555263942}
+  BulletCount: 1
+  TotalAngle: 15
   ShootingInterval: 0.2
   ShootingTime: 1
   BulletSpeed: 3
-  bulletPrefab: {fileID: 7899073847824919205, guid: 7fe09f90fda1581428bc65cfe66b90b8, type: 3}
-  muzzle: {fileID: 1125507463555263942}
 --- !u!114 &8994426654412635570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +206,7 @@ MonoBehaviour:
   _baseBarret: 1
   _baseSpeed: 1
   _baseMaxHp: 100
+  _smallcannon: 0
 --- !u!114 &14250983936505966
 MonoBehaviour:
   m_ObjectHideFlags: 0
