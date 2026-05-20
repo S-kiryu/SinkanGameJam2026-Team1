@@ -7,6 +7,11 @@ public class Timer: MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI _timerText; // タイマー表示用のテキスト
     private float _remainingTime; // 残り時間
 
+    void Start()
+    {
+        _remainingTime = duration;
+    }
+
     void Update()
     {
         _remainingTime -= Time.deltaTime;

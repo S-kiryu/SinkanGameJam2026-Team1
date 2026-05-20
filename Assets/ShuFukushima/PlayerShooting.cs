@@ -7,16 +7,24 @@ public class PlayerShooting : MonoBehaviour
 
     public int BulletCount = 1;
     public float TotalAngle = 60f;
-
-    public float ShootingInterval = 0.5f;
     public float ShootingTime = 0f;
-    public float BulletSpeed = 10f;
+    
 
     private CharacterStatus _characterStatus;
+    private float _shootingInterval;
+    private float _bulletSpeed;
 
     void Start()
     {
         _characterStatus = GetComponent<CharacterStatus>();
+        _bulletSpeed = _characterStatus.Speed;
+        _shootingInterval = _characterStatus.ShootingInterval;
+    }
+
+    public void Initialized()
+    {
+        _bulletSpeed = _characterStatus.Speed;
+        _shootingInterval = _characterStatus.ShootingInterval;
     }
 
     void Update()
@@ -30,7 +38,7 @@ public class PlayerShooting : MonoBehaviour
 
         ShootingTime += Time.deltaTime;
 
-        if (ShootingTime < ShootingInterval) return;
+        if (ShootingTime < _shootingInterval) return;
 
         int bulletCount = Mathf.Max(1, BulletCount);
 
@@ -65,7 +73,7 @@ public class PlayerShooting : MonoBehaviour
 
         if (bullet.TryGetComponent(out Rigidbody2D rb2D))
         {
-            Vector2 velocity = bullet.transform.up * BulletSpeed;
+            Vector2 velocity = bullet.transform.up * _bulletSpeed;
             rb2D.linearVelocity = velocity;
         }
     }
