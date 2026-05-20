@@ -5,7 +5,6 @@ public class EnemyShooting : MonoBehaviour
     public float ShootingInterval;
     public float ShootingTime = 5f;
     public float BulletSpeed;
-    public float MissileSpeed;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform muzzle;
     [SerializeField] private Transform playerTransform;
@@ -30,7 +29,7 @@ public class EnemyShooting : MonoBehaviour
 
     void NormalBullet()
     {
-        Vector3 playerDir = (playerTransform.position - transform.position).normalized;
+        Vector3 playerDir = (playerTransform.position - muzzle.transform.position).normalized;
 
         float angle = Mathf.Atan2(playerDir.y, playerDir.x) * Mathf.Rad2Deg;
 
