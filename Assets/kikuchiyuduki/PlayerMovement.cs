@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-        Vector2 moveDirection = new Vector2(moveX, moveY).normalized;
-        _rigidbody2D.linearVelocity = moveDirection * PlayerMove;
+        transform.Translate(new Vector3(moveX, moveY, 0) * PlayerMove * Time.deltaTime);
     }
 }
