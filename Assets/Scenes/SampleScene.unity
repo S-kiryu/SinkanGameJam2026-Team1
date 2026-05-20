@@ -351,7 +351,6 @@ GameObject:
   - component: {fileID: 1707324280}
   - component: {fileID: 1707324279}
   - component: {fileID: 1707324278}
-  - component: {fileID: 1707324277}
   - component: {fileID: 1707324281}
   m_Layer: 0
   m_Name: Circle
@@ -360,20 +359,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1707324277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707324276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d64a16ebe9fd8846a37c4df74e2a3e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <BuffName>k__BackingField: AttackBuff
-  attackIncrease: 10
 --- !u!114 &1707324278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200649cf8a2ffbb47b97418483ba1d16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffPrefab: {fileID: 1707324277}
+  buffPrefab: {fileID: 11400000, guid: 732ba10bceda3b3459602e922c457f4b, type: 2}
 --- !u!212 &1707324279
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -513,11 +498,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1780928363}
   - component: {fileID: 1780928362}
+  - component: {fileID: 1780928367}
+  - component: {fileID: 1780928368}
   - component: {fileID: 1780928364}
   - component: {fileID: 1780928365}
   - component: {fileID: 1780928366}
-  - component: {fileID: 1780928367}
-  - component: {fileID: 1780928368}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -621,7 +606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseAttack: 1
-  baseDefense: 1
+  baseBarret: 1
   baseSpeed: 1
   baseMaxHp: 1
 --- !u!114 &1780928366
