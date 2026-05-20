@@ -1,40 +1,53 @@
 using UnityEngine;
 
+[System.Serializable]
+public class DropSetting
+{
+    [Range(0f, 1f)] public float hpRate; // 何％で発動
+    public int dropCount; // 個数
+}
+
 public class buffDrop : MonoBehaviour
 {
     [SerializeField] private GameObject[] debugBuffItems;
     [SerializeField] private BossStatus bossHP;
+    [SerializeField] private DropSetting[] dropSettings;
 
-    private bool drop80;
-    private bool drop50;
-    private bool drop10;
+    private bool[] hasDropped;
+
+    private void Start()
+    {
+        hasDropped = new bool[dropSettings.Length];
+    }
 
     void Update()
     {
         float hpRate = bossHP.CurrentHp / bossHP.MaxHp;
 
-        if (!drop80 && hpRate <= 0.8f)
+        for (int i = 0; i < dropSettings.Length; i++)
         {
-            DropItem();
-            drop80 = true;
-        }
-
-        if (!drop50 && hpRate <= 0.5f)
-        {
-            DropItem();
-            drop50 = true;
-        }
-
-        if (!drop10 && hpRate <= 0.1f)
-        {
-            DropItem();
-            drop10 = true;
+            if (!hasDropped[i] && hpRate <= dropSettings[i].hpRate)
+            {
+                DropItem(dropSettings[i].dropCount);
+                hasDropped[i] = true;
+            }
         }
     }
 
-    private void DropItem()
+    private void DropItem(int count)
     {
-        int index = Random.Range(0, debugBuffItems.Length);
-        Instantiate(debugBuffItems[index], transform.position, Quaternion.identity);
+        for (int i = 0; i < count; i++)
+        {
+            int index = Random.Range(0, debugBuffItems.Length);
+
+            float x = Random.Range(0.1f, 0.9f);
+            float y = Random.Range(0.1f, 0.9f);
+
+            Vector3 viewportPos = new Vector3(x, y, 0);
+            Vector3 worldPos = Camera.main.ViewportToWorldPoint(viewportPos);
+            worldPos.z = 0;
+
+            Instantiate(debugBuffItems[index], worldPos, Quaternion.identity);
+        }
     }
 }

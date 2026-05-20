@@ -10,10 +10,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (_rigidbody2D == null)
-        {
             _rigidbody2D = GetComponent<Rigidbody2D>();
-        }
     }
 
     // Update is called once per frame
@@ -21,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-        Vector2 moveDirection = new Vector2(moveX, moveY);
+        Vector2 moveDirection = new Vector2(moveX, moveY).normalized;
         _rigidbody2D.linearVelocity = moveDirection * PlayerMove;
     }
 }
