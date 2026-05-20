@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e478ac8398b2d94296f5149f07051cc, type: 3}
   m_Name: New Fan Shot Attack
   m_EditorClassIdentifier: 
-  Interval: 1
+  interval: 0.2
   bulletPrefab: {fileID: 1330743799309520173, guid: e01c0b0c4185a1341a68a9c7d20eb2ba, type: 3}
-  bulletSpeed: 1
-  bulletCount: 5
+  shotCount: 5
+  shotInterval: 0.05
   totalAngle: 60
+  bulletSpeed: 1
