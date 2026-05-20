@@ -6,9 +6,9 @@ public class BulletAttack : EnemyAttackBase
     public GameObject bulletPrefab;
     public float speed;
 
-    protected override void Execute(Transform enemy, Transform muzzle, Transform player)
+    public override void ExecuteAttack(Transform enemy, Transform muzzle, Transform player)
     {
-        Vector3 dir = (player.position - enemy.position).normalized;
+        Vector3 dir = (player.position - muzzle.position).normalized;
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
