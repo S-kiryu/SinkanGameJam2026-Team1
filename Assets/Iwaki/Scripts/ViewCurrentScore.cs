@@ -7,7 +7,7 @@ public class ViewCurrentScore : MonoBehaviour
 
     void Start()
     {
-        int score = ScoreManager.LastScore;
+        int score = ScoreManager.Instance.LastScore;
         _text.text = $"{score}";
     }
 }

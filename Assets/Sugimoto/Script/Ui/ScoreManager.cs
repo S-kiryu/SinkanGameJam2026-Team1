@@ -7,13 +7,21 @@ public class ScoreManager : MonoBehaviour
     private int _score;
     public int Score => _score;
 
-    public static int LastScore;
+    public int LastScore { get; private set; }
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
+        DontDestroyOnLoad(gameObject);
+
         _score = 0;
-        LastScore = _score;
+        LastScore = 0;
     }
 
     public void AddScore(int value)
