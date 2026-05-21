@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interval: 1
   warningLinePrefab: {fileID: 3644521354646804877, guid: 476bec02b82c0f2499e58ddbe3b8b381, type: 3}
-  laserPrefab: {fileID: 948807999103289678, guid: cabb47d8448d0234baa24dd0e1c8eab7, type: 3}
+  laserPrefab: {fileID: 2115230022521605908, guid: cabb47d8448d0234baa24dd0e1c8eab7, type: 3}
   warningTime: 1
   laserDuration: 0.5
+  shotInterval: 3
+  minLaserCount: 1
+  maxLaserCount: 5
   minX: -7
   maxX: 7
   minY: -4
@@ -24,4 +27,3 @@ MonoBehaviour:
   randomRotation: 1
   minRotation: 0
   maxRotation: 360
-  shotInterval: 3
