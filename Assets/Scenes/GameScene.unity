@@ -299,7 +299,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 461720860}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -879,9 +879,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugBuffItems:
   - {fileID: 655524093267819336, guid: de7987f427bcc2943b8a602877e127ca, type: 3}
+  - {fileID: 655524093267819336, guid: 3a9c3ca8cfe63af489c54cb3aad5472e, type: 3}
   bossHP: {fileID: 461720867}
   dropSettings:
   - hpRate: 0.9
+    dropCount: 5
+  - hpRate: 0.6
+    dropCount: 5
+  - hpRate: 0.4
+    dropCount: 5
+  - hpRate: 0.2
+    dropCount: 5
+  - hpRate: 0.1
     dropCount: 5
 --- !u!4 &1326775592
 Transform:
@@ -1265,7 +1274,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5845758210472844888, guid: 62cd5f1322f46e24ea0396c4875ecff9, type: 3}
       propertyPath: _baseMaxHp
-      value: 100
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5845758210472844888, guid: 62cd5f1322f46e24ea0396c4875ecff9, type: 3}
+      propertyPath: _baseSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5845758210472844888, guid: 62cd5f1322f46e24ea0396c4875ecff9, type: 3}
       propertyPath: _baseAttack
