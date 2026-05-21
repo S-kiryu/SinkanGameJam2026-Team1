@@ -9,9 +9,5 @@ public abstract class EnemyAttackBase : ScriptableObject
     /// <summary>
     /// UŒ‚‚ÌÀsˆ—‚ğ‘‚­‚Æ‚±‚ë
     /// </summary>
-    /// <param name="enemy"></param>
-    /// <param name="muzzle"></param>
-    /// <param name="player"></param>
-    /// <returns></returns>
     public abstract IEnumerator ExecuteAttack(Transform enemy, Transform muzzle, Transform player);
 }
