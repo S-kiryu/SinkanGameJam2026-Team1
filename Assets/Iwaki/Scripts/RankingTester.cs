@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RankingTester : MonoBehaviour
 {
-    public RankingItem item;
+    public RankingRegisterInfo item;
 
     [ContextMenu("Register")]
     public void Register()
