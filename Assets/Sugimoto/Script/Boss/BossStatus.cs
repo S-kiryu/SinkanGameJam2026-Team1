@@ -17,6 +17,7 @@ public class BossStatus : MonoBehaviour
     {
         _currentHp = _maxHp;
         OnHpChanged?.Invoke(MaxHp, CurrentHp);
+        bossAnimasion = GetComponent<BossAnimasion>();
     }
 
     public void TakeDamage(float damage)
