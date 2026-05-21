@@ -19,7 +19,7 @@ namespace Iwaki.Scripts
 
         private void Update()
         {
-            _endPos = _startPos + _moveDir.normalized * _moveDistance;
+            _endPos = _startPos + _moveDir * _moveDistance;
 
             _t += Time.deltaTime * (_speed / _moveDistance);
             _t %= 1f;
