@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class BuffManager : MonoBehaviour
 
     //今効果が適用されているバフのリスト
     private readonly List<ActiveBuff> _activeBuffs = new();
+
+    public event Action<BuffBase> OnBuffAdded;
 
     private void Awake()
     {
@@ -26,6 +29,7 @@ public class BuffManager : MonoBehaviour
         }
 
         _activeBuffs.Add(new ActiveBuff(buff));
+        OnBuffAdded?.Invoke(buff);
         RecalculateStatus();
     }
 
