@@ -109,3 +109,5 @@ InitTestScene*.unity*
 /[Aa]ssets/SaveData.meta
 Assets/Iwaki/AudioClips/
 Assets/Iwaki/AudioClips.meta
+Assets/Asset/Thirdparty/
+Assets/Asset/Thirdparty.meta
