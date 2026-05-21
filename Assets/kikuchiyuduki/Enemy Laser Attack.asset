@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a504939d0b06441b14c75748e3f66a, type: 3}
+  m_Name: Enemy Laser Attack
+  m_EditorClassIdentifier: 
+  interval: 1
+  warningLinePrefab: {fileID: 3644521354646804877, guid: 476bec02b82c0f2499e58ddbe3b8b381, type: 3}
+  laserPrefab: {fileID: 948807999103289678, guid: cabb47d8448d0234baa24dd0e1c8eab7, type: 3}
+  warningTime: 1
+  laserDuration: 0.5
+  minX: -7
+  maxX: 7
+  minY: -4
+  maxY: 4
+  randomRotation: 1
+  minRotation: 0
+  maxRotation: 360
+  shotInterval: 3
