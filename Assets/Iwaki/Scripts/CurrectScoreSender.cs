@@ -7,7 +7,7 @@ public class CurrectScoreSender : MonoBehaviour
 {
     private void Awake()
     {
-        var info = new RankingRegisterInfo(ScoreManager.LastScore);
+        var info = new RankingRegisterInfo(ScoreManager.Instance.LastScore);
         RankingIOService.RegisterRank(info);
     }
 }
