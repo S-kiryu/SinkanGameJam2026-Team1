@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class OrbitObject : MonoBehaviour
 {
-    [SerializeField] private Transform enemyTransform;
-
     [SerializeField] private GameObject Bullet;
     [SerializeField] private Transform muzzle;
 
@@ -23,7 +21,9 @@ public class OrbitObject : MonoBehaviour
 
         if( timer >= shootingInterval)
         {
-            Vector3 direction = enemyTransform.position - transform.position;
+            GameObject enemyTransform = GameObject.FindWithTag("Enemy");
+
+            Vector3 direction = enemyTransform.transform.position - transform.position;
 
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
             Quaternion bulletRotation = Quaternion.AngleAxis(angle, Vector3.forward);
