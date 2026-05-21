@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27dea6316332c8f4582509f21d0277f3, type: 3}
+  m_Name: New Enemy Bit 2 Release
+  m_EditorClassIdentifier: 
+  interval: 1
+  enemyBit2: {fileID: 1817547622283378399, guid: ba54b9fb4608b654f83a93ba42e245dc, type: 3}
+  shotInterval: 0.05
