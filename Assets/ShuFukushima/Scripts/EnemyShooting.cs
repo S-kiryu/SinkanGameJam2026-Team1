@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
@@ -6,24 +7,33 @@ public class EnemyShooting : MonoBehaviour
     [SerializeField] private Transform muzzle;
     [SerializeField] private Transform playerTransform;
 
-    private float cooldownTimer = 0f;
+    private bool isAttacking;
+    private float cooldownTimer;
 
-    void Update()
+    private void Update()
     {
+        if (isAttacking) return;
         if (attacks == null || attacks.Length == 0) return;
         if (muzzle == null || playerTransform == null) return;
 
         cooldownTimer -= Time.deltaTime;
-
         if (cooldownTimer > 0f) return;
 
+        StartCoroutine(AttackRoutine());
+    }
+
+    private IEnumerator AttackRoutine()
+    {
+        isAttacking = true;
+
         EnemyAttackBase attack = GetRandomAttack();
-        if (attack == null) return;
+        if (attack != null)
+        {
+            yield return StartCoroutine(attack.ExecuteAttack(transform, muzzle, playerTransform));
+            cooldownTimer = attack.Interval;
+        }
 
-        attack.ExecuteAttack(transform, muzzle, playerTransform);
-
-        // 今回使った攻撃のクールタイムを待つ
-        cooldownTimer = attack.Interval;
+        isAttacking = false;
     }
 
     private EnemyAttackBase GetRandomAttack()

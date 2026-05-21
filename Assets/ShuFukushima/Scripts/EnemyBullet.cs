@@ -5,18 +5,19 @@ public class EnemyBullet : MonoBehaviour
     public float SpawnTime = 5f;
     [SerializeField] private int damage = 1;
 
-
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.CompareTag("Player"))
         {
             var status = collision.GetComponent<CharacterStatus>();
 
             if (status != null)
             {
+                Debug.Log($"{name}: Player Ç… {damage} É_ÉÅÅ[ÉW");
                 status.TakeDamage(damage);
             }
+
             Destroy(gameObject);
         }
     }
