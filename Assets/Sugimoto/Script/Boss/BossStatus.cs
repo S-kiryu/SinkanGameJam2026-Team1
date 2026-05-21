@@ -29,6 +29,14 @@ public class BossStatus : MonoBehaviour
             BossDead();
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+           var player = collision.gameObject.GetComponent<CharacterStatus>();
+            player.TakeDamage(5f); // プレイヤーに5のダメージを与える
+        }
+    }
 
     public void BossDead()
     {
