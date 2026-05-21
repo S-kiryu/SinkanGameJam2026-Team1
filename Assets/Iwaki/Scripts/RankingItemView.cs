@@ -4,16 +4,16 @@ using UnityEngine.UI;
 public class RankingItemView : MonoBehaviour
 {
     [SerializeField] Text scoreText;
+    [SerializeField] private GameObject _isNewDisplay;
 
-    public void SetData(RankingItem item, int rankIndex)
+    public void SetData(RankingItem item, int rank, bool isNew)
     {
-        if (item == null)
-        {
-            scoreText.text = "N/A"; // データがない場合の表示
-        }
-        else
-        {
-            scoreText.text = $"{item.score}"; // ランキングとスコアを表示
-        }
+        scoreText.text = $"{item.Score}"; // ランキングとスコアを表示
+        if (_isNewDisplay) _isNewDisplay.SetActive(isNew);
+    }
+
+    public void SetNoData()
+    {
+        scoreText.text = "N/A";
     }
 }

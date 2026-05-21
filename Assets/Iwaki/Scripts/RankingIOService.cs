@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using System.Linq;
 using UnityEngine;
 
 public static class RankingIOService
@@ -49,19 +48,11 @@ public static class RankingIOService
     /// <summary>
     /// ランキングにスコアを登録
     /// </summary>
-    /// <param name="item"></param>
-    public static void RegisterRank(RankingItem item)
+    public static void RegisterRank(RankingRegisterInfo info)
     {
         var data = Load();
 
-        data.ranks.Add(item);
-
-        for (int i = 0; i < data.ranks.Count; i++)
-        {
-            item ??= new RankingItem();
-        }
-
-        data.ranks = data.ranks.OrderByDescending(x => x?.score ?? -1).ToList();
+        data.AddItem(new RankingItem(data, info));
 
         Save(data);
     }

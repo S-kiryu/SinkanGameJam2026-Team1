@@ -7,6 +7,7 @@ public class ViewCurrentScore : MonoBehaviour
 
     void Start()
     {
-        _text.text = "Placeholder"; // 後でスコア取ってくる処理追加
+        int score = ScoreManager.LastScore;
+        _text.text = $"{score}";
     }
 }
