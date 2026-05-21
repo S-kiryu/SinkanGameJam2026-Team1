@@ -7,6 +7,7 @@ public static class RankingIOService
 
     private static string GetFilePath()
     {
+        // ビルドのフォルダ内に保存する
         return $"{Application.dataPath}/{LocalFilePath}";
     }
 
