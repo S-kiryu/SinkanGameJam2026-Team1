@@ -33,7 +33,7 @@ public class AudioManager : MonoBehaviour
     public void Start()
     {
         //Žn‚ß‚É—¬‚·‰¹‚ð“ü‚ê‚é
-        PlayBGM("", 0.3f);
+        PlayBGM("Title", 0.3f);
     }
 
     private void Init()

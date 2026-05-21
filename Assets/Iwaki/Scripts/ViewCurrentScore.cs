@@ -17,7 +17,7 @@ public class ViewCurrentScore : MonoBehaviour
 
     string GetScoreString()
     {
-        int score = ScoreManager.LastScore;
+        int score = ScoreManager.Instance.LastScore;
         return $"{_prefix}{FormatNumber(score, _scoreDigits)}";
     }
 
