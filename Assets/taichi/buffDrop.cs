@@ -17,6 +17,7 @@ public class buffDrop : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.Instance.PlayBGM("InGame01", 0.3f);
         hasDropped = new bool[dropSettings.Length];
     }
 
