@@ -4,16 +4,17 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
 
-    public int Score { get; private set; }
+    private int _score;
+    public int Score => _score;
 
     private void Awake()
     {
         Instance = this;
-        Score = 0;
+        _score = 0;
     }
 
     public void AddScore(int value)
     {
-        Score += value;
+        _score += value;
     }
 }

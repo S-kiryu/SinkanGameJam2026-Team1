@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterStatus : MonoBehaviour
 {
@@ -65,6 +66,7 @@ public class CharacterStatus : MonoBehaviour
     private void Death()
     {
         Debug.Log("キャラクターは死んだ");
+        SceneManager.LoadScene("GameOver Scene");    
     }
 
     private float GetBuffValue(StatType statType)
