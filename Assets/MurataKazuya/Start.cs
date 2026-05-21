@@ -1,10 +1,10 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // 追加
+using UnityEngine.SceneManagement;
 
 public class Start : MonoBehaviour
 {
-    public void OnStartButton()
+    public void OnStartButton(string nextScene)
     {
-        SceneManager.LoadScene("GameScene"); // "GameScene" の部分はシーンの名前に変更
+        SceneManager.LoadScene(nextScene); // "GameScene" の部分はシーンの名前に変更
     }
 }

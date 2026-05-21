@@ -26,11 +26,16 @@ public class Timer: MonoBehaviour
         _timerText.text = _remainingTime.ToString("F1");
     }
 
+    public void AddScore(float time)
+    {
+        ScoreManager.Instance.AddScore((int)time);
+    }
+
     // タイマー終了時の処理
     void TimeUp()
     {
         Debug.Log("時間切れ！");
-
+        
         enabled = false;
     }
 }
