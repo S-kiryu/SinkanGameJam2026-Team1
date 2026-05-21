@@ -15,5 +15,6 @@ public class RankingItemView : MonoBehaviour
     public void SetNoData()
     {
         scoreText.text = "N/A";
+        _isNewDisplay.SetActive(false);
     }
 }

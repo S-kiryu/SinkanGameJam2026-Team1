@@ -19,7 +19,7 @@ public class RankingView : MonoBehaviour
             t.SetNoData();
         }
 
-        var ranking = _rankingData.GetOrderedRanking();
+        var ranking = _rankingData.GetDescendingOrderedRanking();
         var latestIndex = RankingData.GetLatestRank(ranking);
 
         for (int i = 0; i < ranking.Count; i++)
@@ -45,10 +45,10 @@ public struct RankingRegisterInfo
 /// ランキング情報の１個ずつ
 /// </summary>
 [System.Serializable]
-public readonly struct RankingItem
+public struct RankingItem
 {
-    public readonly int Score;
-    public readonly int Index;
+    public int Score;
+    public int Index;
 
     public RankingItem(RankingData data, RankingRegisterInfo info)
     {
@@ -72,9 +72,9 @@ public class RankingData
         _ranks.Add(item);
     }
 
-    public List<RankingItem> GetOrderedRanking()
+    public List<RankingItem> GetDescendingOrderedRanking()
     {
-        return _ranks.OrderBy(x => x.Score).ToList();
+        return _ranks.OrderByDescending(x => x.Score).ToList();
     }
 
     public static int GetLatestRank(List<RankingItem> items)
