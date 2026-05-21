@@ -23,6 +23,8 @@ public class Bullet : MonoBehaviour
             if (status != null)
             {
                 status.TakeDamage(damage + _attackPower);
+                ScoreManager.Instance.AddScore(damage);
+                AudioManager.Instance.PlaySE("Damage");
             }
             Debug.Log("Enemy‚É“–‚½‚Á‚½");
             Destroy(gameObject);
