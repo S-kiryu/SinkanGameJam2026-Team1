@@ -1,9 +1,8 @@
 using UnityEngine;
-using TMPro;
 
 public class ScoreUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TMPro.TextMeshProUGUI scoreText;
 
     void Start()
     {
