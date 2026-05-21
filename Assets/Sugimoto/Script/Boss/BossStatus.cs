@@ -6,6 +6,8 @@ public class BossStatus : MonoBehaviour
     [SerializeField] private float _maxHp = 100f;
     private float _currentHp;
 
+    private BossAnimasion bossAnimasion;
+
     public float MaxHp => _maxHp;
     public float CurrentHp => _currentHp;
 
@@ -22,6 +24,8 @@ public class BossStatus : MonoBehaviour
         _currentHp -= damage;
 
         OnHpChanged?.Invoke(MaxHp, CurrentHp);
+
+        bossAnimasion.HitAnima();
 
         if (_currentHp <= 0)
         {
