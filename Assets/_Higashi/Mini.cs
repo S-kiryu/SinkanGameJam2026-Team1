@@ -1,7 +1,10 @@
 using UnityEngine;
 
-public class OrbitObject : MonoBehaviour
+public class Mini : MonoBehaviour
 {
+    [SerializeField] private GameObject obj;
+    //[SerializeField] private GameObject MiniPrefab;
+
     [SerializeField] private GameObject Bullet;
     [SerializeField] private Transform muzzle;
 
@@ -13,6 +16,16 @@ public class OrbitObject : MonoBehaviour
     void Update()
     {
         ShootMini();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("EnemyBullet"))
+        {
+            Destroy(collision.gameObject);
+
+            Destroy(obj);
+        }
     }
 
     void ShootMini()
@@ -40,4 +53,8 @@ public class OrbitObject : MonoBehaviour
         }
     }
 
+    //public void AddMini(Transform playerT)
+    //{
+    //    Instantiate(MiniPrefab,playerT.position,Quaternion.identity);
+    //}
 }

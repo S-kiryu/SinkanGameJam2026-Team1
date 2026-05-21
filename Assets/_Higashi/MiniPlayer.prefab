@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 1495539365439463292}
   - component: {fileID: 863249541555800028}
   - component: {fileID: 8783974558972680237}
+  - component: {fileID: 6404394451601398021}
   m_Layer: 0
   m_Name: Mini
   m_TagString: Untagged
@@ -132,11 +133,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 718770b1bf8d12b438e9f8773f0eadba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTransform: {fileID: 0}
+  obj: {fileID: 7595964623073440932}
   Bullet: {fileID: 2321893604775579138, guid: 9e8d25fbfd21d0d4b9220a510d887e21, type: 3}
   muzzle: {fileID: 1084939005539055738}
   shootingInterval: 0.5
   bulletSpeed: 3
+--- !u!58 &6404394451601398021
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4749966613642631313}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.29166672
 --- !u!1 &7595964623073440932
 GameObject:
   m_ObjectHideFlags: 0
