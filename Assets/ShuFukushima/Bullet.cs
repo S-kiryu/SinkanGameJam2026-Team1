@@ -7,13 +7,13 @@ public class Bullet : MonoBehaviour
 
     private float _attackPower;
 
+
     public void SetAttackPower(float attackPower)
     {
         _attackPower = attackPower;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Bullet‚ª‰½‚©‚É“–‚½‚Á‚½");
         if (collision.CompareTag("Enemy"))
         {
             var status = collision.GetComponent<BossStatus>();

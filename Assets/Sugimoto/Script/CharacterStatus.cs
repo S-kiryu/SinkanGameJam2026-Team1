@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterStatus : MonoBehaviour
 {
@@ -7,6 +9,7 @@ public class CharacterStatus : MonoBehaviour
     [SerializeField] private float _baseAttack = 1f;
     [SerializeField] private float _baseBarret = 1f;
     [SerializeField] private float _baseSpeed = 1f;
+    [SerializeField] protected float _shootingInterval = 1f;
     [SerializeField] private float _baseMaxHp = 1f;
     [SerializeField] private int _smallcannon = 0;
 
@@ -17,11 +20,13 @@ public class CharacterStatus : MonoBehaviour
     public float Attack => _baseAttack + GetBuffValue(StatType.Attack);
     public float Barret => _baseBarret + GetBuffValue(StatType.Barret);
     public float Speed => _baseSpeed + GetBuffValue(StatType.Speed);
+    public float ShootingInterval => _shootingInterval + GetBuffValue(StatType.ShootingInterval);
     public float MaxHp => _baseMaxHp + GetBuffValue(StatType.MaxHp);
     public int Smallcannon => _smallcannon + (int)GetBuffValue(StatType.Smallcannon);
     public float CurrentHp => _currentHp;
     
-    public System.Action<float, float> OnHpChanged;
+    public Action<float, float> OnHpChanged;
+    public Action<int> OnSmallcannonChanged;
 
     private void Awake()
     {
@@ -43,17 +48,25 @@ public class CharacterStatus : MonoBehaviour
 
     public void ApplyBuffValues(Dictionary<StatType, float> values)
     {
+        int previousSmallcannon = Smallcannon;
+
         buffValues.Clear();
 
         foreach (var pair in values)
         {
             buffValues[pair.Key] = pair.Value;
         }
+
+        if (previousSmallcannon != Smallcannon)
+        {
+            OnSmallcannonChanged?.Invoke(Smallcannon);
+        }
     }
 
     private void Death()
     {
         Debug.Log("キャラクターは死んだ");
+        SceneManager.LoadScene("GameOver Scene");    
     }
 
     private float GetBuffValue(StatType statType)

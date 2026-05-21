@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76744c0d12e88444a2444e383d1a0f0, type: 3}
+  m_Name: CircleBomb
+  m_EditorClassIdentifier: 
+  interval: 1
+  warningLinePrefab: {fileID: 2896178309794178314, guid: 77fe1727234efd54f9d629d3eca499e0, type: 3}
+  bombPrefab: {fileID: 9188243994831904510, guid: 2476205de7395ed46a2e5e80600c6371, type: 3}
+  warningTime: 1.5
+  bombDuration: 0.3
+  shotInterval: 1.5
+  minBombCount: 2
+  maxBombCount: 4
+  minX: -7
+  maxX: 7
+  minY: -4
+  maxY: 4
+  randomRotation: 0
+  minRotation: 0
+  maxRotation: 0

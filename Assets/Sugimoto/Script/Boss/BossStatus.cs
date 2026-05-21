@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossStatus : MonoBehaviour
 {
@@ -32,5 +33,6 @@ public class BossStatus : MonoBehaviour
     public void BossDead()
     {
         Debug.Log("Boss defeated!");
+        SceneManager.LoadScene("Game Clear");
     }
 }
