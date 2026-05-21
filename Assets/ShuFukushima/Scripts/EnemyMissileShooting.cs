@@ -38,6 +38,8 @@ public class EnemyMissileShooting : MonoBehaviour
         // 弾を生成
         GameObject missile = Instantiate(MissilePrefab, muzzle.position, Quaternion.Euler(0, 0, angle - 90f));
 
+        Destroy(missile, 5f);
+
         if (missile.TryGetComponent(out Rigidbody2D rb2D))
         {
             Vector2 velocity = playerDir * MissileSpeed; // * Time.deltaTime;
