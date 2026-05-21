@@ -24,6 +24,7 @@ public class RankingView : MonoBehaviour
 
         for (int i = 0; i < ranking.Count; i++)
         {
+            if (i >= items.Length) return;
             items[i].SetData(ranking[i], i, i == latestIndex);
         }
     }
