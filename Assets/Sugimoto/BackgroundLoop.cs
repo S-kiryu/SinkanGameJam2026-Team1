@@ -3,15 +3,15 @@ using UnityEngine;
 public class LoopImage : MonoBehaviour
 {
     public float speed = 2f;
-    public float width = 20f;
+    public float height = 20f;
 
     void Update()
     {
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
+        transform.Translate(Vector3.up * speed * Time.deltaTime);
 
-        if (transform.position.x <= -width)
+        if (transform.position.y >= height)
         {
-            transform.position += new Vector3(width * 2f, 0, 0);
+            transform.position -= new Vector3(0, height * 2f, 0);
         }
     }
 }

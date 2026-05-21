@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Timer: MonoBehaviour
@@ -35,7 +36,8 @@ public class Timer: MonoBehaviour
     void TimeUp()
     {
         Debug.Log("ŠÔØ‚êI");
-        
+        SceneManager.LoadScene("GameOver Scene");
+
         enabled = false;
     }
 }
